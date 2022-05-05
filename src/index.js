@@ -1,65 +1,62 @@
-Remember the acronym UPS check
+// Remember the acronym UPS check
 
-Step One (Understand). We have to understand the problem.
-1. What is the unknown?
+// Step One (Understand). We have to understand the problem.
+// 1. What is the unknown?
 
-reverses the list in place (no mutation)
-and returns a new head
+// reverses the list in place (no mutation)
+// and returns a new head
 
-2. What are the data inputs?
-head of a singly linked list
+// 2. What are the data inputs?
+// head of a singly linked list
 
-3. Can you restate the problem in your own words?
+// 3. Can you restate the problem in your own words?
 
-reverse and return the new head
+// reverse and return the new head
 
-4. Can the unknown be determined from the data inputs?
+// 4. Can the unknown be determined from the data inputs?
 
-yes 
+// yes
 
-5. Is the data inputs sufficient to determine the unknown? Insufficient? Redundant? Contradictory? 
+// 5. Is the data inputs sufficient to determine the unknown? Insufficient? Redundant? Contradictory?
 
-sufficient
+// sufficient
 
-6. How should I label important pieces of data input that are a part of the problem?
+// 6. How should I label important pieces of data input that are a part of the problem?
 
-head 
+// head
 
-7. Draw a figure. Introduce suitable notation.
+// 7. Draw a figure. Introduce suitable notation.
 
-Step Two (Plan). Come up with concrete examples to help you understand the problem better. Find a connection between the data inputs and the unknown. You may be obliged to consider auxiliary problems if an immediate connection cannot be found. 
-8.  Have you seen it before? Or have you seen the same problem in a slightly different form? Do you know a related problem? 
+// Step Two (Plan). Come up with concrete examples to help you understand the problem better. Find a connection between the data inputs and the unknown. You may be obliged to consider auxiliary problems if an immediate connection cannot be found.
+// 8.  Have you seen it before? Or have you seen the same problem in a slightly different form? Do you know a related problem?
 
-yes 
-9.   Do you know a coding strategy that could be useful? Look at the unknown! And try to think of a familiar problem having the same or a similar unknown. Here is a problem related to yours and solve before. Could you use it? Could you use its result? Could you use its method? 
-3 pointers
+// yes
+// 9.   Do you know a coding strategy that could be useful? Look at the unknown! And try to think of a familiar problem having the same or a similar unknown. Here is a problem related to yours and solve before. Could you use it? Could you use its result? Could you use its method?
+// 3 pointers
 
-10. Start with a simple example. Could you restate the problem? Could you restate it still differently? 
-see notes
+// 10. Start with a simple example. Could you restate the problem? Could you restate it still differently?
+// see notes
 
-11. What about examples with empty inputs? Any other edge case examples? What examples with invalid inputs? 
+// 11. What about examples with empty inputs? Any other edge case examples? What examples with invalid inputs?
 
-fast is zero and so slow is null
+// fast is zero and so slow is
 
-12. Progress to more complex examples. What is your updated plan here to find a solution?
-13. If you still cannot solve the proposed problem, try to solve first some related problem. Could you imagine a more accessible related problem? A more general problem? A more special problem? An analogous problem? Could you solve a part of the problem? Keep only a part of the data inputs, drop the other part; how far is the unknown then determined, how can it vary? Could you derive something useful from the data? Could you think of other data appropriate to determine the unknown? Could you change the unknown or the data, or both if necessary, so that the new unknown and the new data are nearer to each other? Did you use all the data? Did you use the whole of the data inputs? Have you taken into account all essential notions involved in the problem?
+// 12. Progress to more complex examples. What is your updated plan here to find a solution?
+// 13. If you still cannot solve the proposed problem, try to solve first some related problem. Could you imagine a more accessible related problem? A more general problem? A more special problem? An analogous problem? Could you solve a part of the problem? Keep only a part of the data inputs, drop the other part; how far is the unknown then determined, how can it vary? Could you derive something useful from the data? Could you think of other data appropriate to determine the unknown? Could you change the unknown or the data, or both if necessary, so that the new unknown and the new data are nearer to each other? Did you use all the data? Did you use the whole of the data inputs? Have you taken into account all essential notions involved in the problem?
 
+// Step Three (Solve). Carry out your plan of the solution and check each one of your steps in pseudocode.
+// 14.  Can you see clearly that the step is correct?
 
-Step Three (Solve). Carry out your plan of the solution and check each one of your steps in pseudocode.
-14.  Can you see clearly that the step is correct?
+// see pseudocode below
 
-see pseudocode below
-
-IV. 	Step Four (Check). Examine the solution obtained and refactor. 
-15.  Can you check your result? 
-16.  Can you check the argument? 
-17.  Can you derive the result differently? 
-18.  Can you see it at a glance? 
-19.  Can you make the code DRYer and refactor? 
-20.  Can you improve the performance? 
-21.   How have other people solved this problem?
-
-
+// IV. 	Step Four (Check). Examine the solution obtained and refactor.
+// 15.  Can you check your result?
+// 16.  Can you check the argument?
+// 17.  Can you derive the result differently?
+// 18.  Can you see it at a glance?
+// 19.  Can you make the code DRYer and refactor?
+// 20.  Can you improve the performance?
+// 21.   How have other people solved this problem?
 
 class LinkedList {
   constructor(value) {
@@ -70,24 +67,22 @@ class LinkedList {
 
 function reverseLinkedList(head) {
   // Write your code here.
-  // set slow.next and fast.next.next as starting pointers to the head
-  slow = fast;
-  fast = pointer;
-  pointer = fast.next;
+  let slow = head;
+  let fast = head.next;
+  let pointer = fast.next;
+  // iterate till pointer is null
+  while (pointer !== null) {
+    // store the fast next value into a pointer variable
+    pointer = fast.next;
+    // reverse the direction of the linked list arrow
+    fast.next = slow;
+    // shift the slow pointer right one spot
+    slow = fast;
+    // shift the fast pointer right one spot
+    fast = pointer;
+  }
+  // we need to reverse the direction of the linked list arrow
+  fast.next = slow;
 
-  slow.next = head;
-  fast.next.next = head;
-// slow should be one behind fast as they traverse
-// loop until fast equals null
-while (fast !== null){
-  slow = slow.next;
-  fast = fast.next;
-  slow = fast.next;
-}
-while (fast === null) {
-  
-}
-    slow = head;
-  
   return slow;
 }
