@@ -70,4 +70,18 @@ class LinkedList {
 
 function reverseLinkedList(head) {
   // Write your code here.
+  // set slow.next and fast.next.next as starting pointers to the head
+  slow.next = head;
+  fast.next.next = head;
+// slow should be one behind fast as they traverse
+// loop until fast equals null
+while (fast !== null){
+  slow = slow.next;
+  fast = fast.next;
+}
+// when fast equals null, slow is the head
+  if (fast === null){
+    slow = head;
+  }
+  return slow;
 }
