@@ -39,7 +39,7 @@ see notes
 
 11. What about examples with empty inputs? Any other edge case examples? What examples with invalid inputs? 
 
-stand alone nodes
+fast is zero and so slow is null
 
 12. Progress to more complex examples. What is your updated plan here to find a solution?
 13. If you still cannot solve the proposed problem, try to solve first some related problem. Could you imagine a more accessible related problem? A more general problem? A more special problem? An analogous problem? Could you solve a part of the problem? Keep only a part of the data inputs, drop the other part; how far is the unknown then determined, how can it vary? Could you derive something useful from the data? Could you think of other data appropriate to determine the unknown? Could you change the unknown or the data, or both if necessary, so that the new unknown and the new data are nearer to each other? Did you use all the data? Did you use the whole of the data inputs? Have you taken into account all essential notions involved in the problem?
@@ -71,6 +71,10 @@ class LinkedList {
 function reverseLinkedList(head) {
   // Write your code here.
   // set slow.next and fast.next.next as starting pointers to the head
+  slow = fast;
+  fast = pointer;
+  pointer = fast.next;
+
   slow.next = head;
   fast.next.next = head;
 // slow should be one behind fast as they traverse
