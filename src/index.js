@@ -32,7 +32,7 @@ Step Two (Plan). Come up with concrete examples to help you understand the probl
 
 yes 
 9.   Do you know a coding strategy that could be useful? Look at the unknown! And try to think of a familiar problem having the same or a similar unknown. Here is a problem related to yours and solve before. Could you use it? Could you use its result? Could you use its method? 
-slow and fast pointers
+3 pointers
 
 10. Start with a simple example. Could you restate the problem? Could you restate it still differently? 
 see notes
@@ -78,10 +78,12 @@ function reverseLinkedList(head) {
 while (fast !== null){
   slow = slow.next;
   fast = fast.next;
+  slow = fast.next;
 }
-// when fast equals null, slow is the head
-  if (fast === null){
+while (fast === null) {
+  
+}
     slow = head;
-  }
+  
   return slow;
 }
