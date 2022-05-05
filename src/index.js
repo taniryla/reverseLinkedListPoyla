@@ -67,13 +67,12 @@ class LinkedList {
 
 function reverseLinkedList(head) {
   // Write your code here.
-  let slow = head;
-  let fast = head.next;
-  let pointer = fast.next;
+  let slow = null;
+  let fast = head;
   // iterate till pointer is null
   while (pointer !== null) {
     // store the fast next value into a pointer variable
-    pointer = fast.next;
+    let pointer = fast.next;
     // reverse the direction of the linked list arrow
     fast.next = slow;
     // shift the slow pointer right one spot
