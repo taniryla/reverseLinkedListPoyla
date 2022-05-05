@@ -81,7 +81,5 @@ function reverseLinkedList(head) {
     fast = pointer;
   }
   // we need to reverse the direction of the linked list arrow
-  fast.next = slow;
-
   return slow;
 }
